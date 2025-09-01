@@ -1,7 +1,8 @@
 # Student Performance Analysis & Prediction
 
 ## Project Overview
-This project analyzes student performance using **unsupervised and supervised machine learning** techniques. The goal is to understand behavioral and home factors affecting academic outcomes and to predict whether students are struggling and their final grades (`G3`).
+This project analyzes student performance using **unsupervised and supervised machine learning** techniques. 
+The goal is to understand behavioral and home factors affecting academic outcomes and to predict whether students are struggling and their final grades (`G3`).
 
 ---
 
@@ -91,21 +92,21 @@ This project analyzes student performance using **unsupervised and supervised ma
 Here are some key visualizations from the project that highlight our analysis and results:
 
 ### finde the outliers
-![finde the outliers](images/Distribution_BoxPlot.png)
+![finde the outliers](../images/Distribution_BoxPlot.png)
 
 ### CorreIation Matrix
-![CorreIation Matrix](images/CorreIation_Matrix.png)
+![CorreIation Matrix](../images/CorreIation_Matrix.png)
 *Clustering students based on study habits, social activities, and free time.*
 
 ### Home Environment Clusters
-![Clusters Visualization](images/Clusters_Visualization_PCA.png)
+![Clusters Visualization](../images/Clusters_Visualization_PCA.png)
 *Clustering based on family support, parental education, and household factors.*
-![Cluster Profiles](images/Cluster_Profiles.png)
-![Silhouette Scores](images/Silhouette_Scores.png)
+![Cluster Profiles](../images/Cluster_Profiles.png)
+![Silhouette Scores](../images/Silhouette_Scores.png)
 
 
 ### Linear Regression: Actual vs Predicted
-![Regression Plot](images/Linear_Regression.png)
+![Regression Plot](../images/Linear_Regression.png)
 *Scatter plot showing how well the model predicts students' final grades (G3).*
 
 ---
