@@ -1,0 +1,116 @@
+
+# Student Performance Analysis
+
+## Project Overview
+This project analyzes student performance using **unsupervised and supervised machine learning** techniques. The goal is to understand behavioral and home factors affecting academic outcomes and to predict whether students are struggling and their final grades (`G3`).
+
+---
+
+## Dataset
+- Source: Student academic and personal dataset (demographics, family support, habits, and grades).  
+- Key Features:
+  - Behavioral: `studytime`, `absences`, `goout`, `freetime`, `famsup`, `schoolsup`
+  - Home-related: `famsize`, `Pstatus`, `Medu`, `Fedu`, `Mjob`, `Fjob`, `guardian`
+  - Academic: `G1`, `G2`, `G3`, `study_efficiency`, `is_struggling`
+  - Lifestyle: `Dalc`, `Walc`, `alcohol_ratio`, `goout_freetime`, `freetime`, `health`
+
+---
+
+## Methodology
+
+### 1. Unsupervised Learning: K-Means
+- **Behavior Clustering**: Segment students based on study habits and social activities to see behavioral impact on grades.  
+- **Home Clustering**: Segment students based on family and home environment to analyze influence on performance.  
+- **Outcome**: Identified clusters with varying average grades (`G3`) and typical behavioral/home profiles.
+
+### 2. Supervised Learning: Classification
+- **Goal**: Predict if a student is struggling (`target`).  
+- **Models Tested**: Decision Tree, Random Forest, CatBoost.  
+- **Data Handling**: Removed `target`, `G3`, `G1G2_avg`, and cluster labels to avoid data leakage.  
+- **Imbalanced Classes**: Applied class weights in CatBoost and Random Forest for better minority class performance.  
+- **Selected Features**:
+
+
+```python
+  selected_features = [
+      "study_efficiency", "is_struggling", "goout_freetime", "studytime_failures",
+      "famrel", "alcohol_ratio", "parent_edu", "higher", "freetime", "age",
+      "Fedu", "health", "Walc","goout", 'Medu'
+  ]
+  ```
+
+
+* **Best Model**: Random Forest
+* **Final Performance**:
+
+  * Accuracy: 0.90
+  * Minority class (`0`) F1-score: 0.43
+  * Majority class (`1`) F1-score: 0.95
+
+### 3. Supervised Learning: Regression
+
+* **Goal**: Predict exact final grades (`G3`) using `G1G2_avg`, `study_efficiency`, and `is_struggling`.
+* **Model**: Linear Regression
+* **Performance**:
+
+  * R²: 0.822
+  * RMSE: 1.736
+
+
+
+## Key Insights
+
+* Students with **strong family and school support** tend to achieve **higher grades**.
+* Behavioral patterns like consistent study time and moderate social activities correlate with better performance.
+* Home environment significantly affects outcomes: supportive parents and educated family members boost results.
+* Predictive models can identify struggling students early and estimate final grades with reasonable accuracy.
+
+
+
+## How to Use
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repo_url>
+   ```
+2. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run notebooks:
+
+   * `KMeans_Analysis.ipynb` → Behavioral & Home Clustering
+   * `Classification_Model.ipynb` → Predict struggling students
+   * `Regression_Model.ipynb` → Predict final grades
+
+---
+
+## Project Visualizations
+
+Here are some key visualizations from the project that highlight our analysis and results:
+
+### finde the outliers
+![finde the outliers](images\Distribution_BoxPlot.png)
+
+### CorreIation Matrix
+![CorreIation Matrix](images\CorreIation_Matrix.png)
+*Clustering students based on study habits, social activities, and free time.*
+
+### Home Environment Clusters
+![Clusters Visualization](images\Clusters_Visualization_PCA.png)
+*Clustering based on family support, parental education, and household factors.*
+![Cluster Profiles](images\Cluster_Profiles.png)
+![Silhouette Scores](images\Silhouette_Scores.png)
+
+
+"D:\ML_Projects\student-performance-models\"
+### Linear Regression: Actual vs Predicted
+![Regression Plot](images\Linear_Regression.png)
+*Scatter plot showing how well the model predicts students' final grades (G3).*
+
+---
+## Conclusion
+
+Combining **behavioral, home, and academic features** allows us to **segment students effectively**, predict struggling cases, and estimate final grades. This approach can help educators **personalize interventions** and improve overall student performance.
