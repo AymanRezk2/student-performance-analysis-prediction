@@ -86,33 +86,6 @@ selected\_features = \[
 
 ---
 
-## Project Visualizations
-
-Here are some key visualizations from the project that highlight our analysis and results:
-
-### Find the Outliers
-
-![Find the Outliers](images/Distribution_BoxPlot.png)
-
-### Correlation Matrix
-
-![Correlation Matrix](images/CorreIation_Matrix.png)
-*Clustering students based on study habits, social activities, and free time.*
-
-### Home Environment Clusters
-
-![Clusters Visualization](images/Clusters_Visualization_PCA.png)
-*Clustering based on family support, parental education, and household factors.*
-![Cluster Profiles](images/Cluster_Profiles.png)
-![Silhouette Scores](images/Silhouette_Scores.png)
-
-### Linear Regression: Actual vs Predicted
-
-![Regression Plot](images/Linear_Regression.png)
-*Scatter plot showing how well the model predicts students' final grades (G3).*
-
----
-
 ## Conclusion
 
 Combining **behavioral, home, and academic features** allows us to **segment students effectively**, predict struggling cases, and estimate final grades. This approach can help educators **personalize interventions** and improve overall student performance.
