@@ -93,7 +93,7 @@ The project uses the **Student Performance Dataset** with two files:
 ## 📦 Usage
 
 ```bash
-git clone <repo-link>
+git clone <https://github.com/AymanRezk2/student-performance-analysis-prediction>
 cd student-performance-analysis-prediction
 pip install -r requirements.txt
 jupyter notebook
