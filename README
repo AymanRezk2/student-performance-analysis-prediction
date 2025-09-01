@@ -1,93 +1,64 @@
 # Student Performance Analysis & Prediction
 
 ## Project Overview
-
-This project analyzes student performance using **unsupervised and supervised machine learning** techniques.
-The goal is to understand behavioral and home factors affecting academic outcomes and to predict whether students are struggling and their final grades (`G3`).
-
----
+This project focuses on **analyzing student behavior, home environment, and academic performance** using **Machine Learning**. It employs both **unsupervised and supervised learning techniques** to effectively **segment students**, **predict academic outcomes**, and **uncover key factors** that influence student performance. The ultimate goal is to understand behavioral and home factors affecting academic outcomes and to predict whether students are struggling, as well as their final grades (`G3`).
 
 ## Dataset
+The project utilizes a **student academic and personal dataset** which includes demographics, family support, habits, and grades.
 
-* Source: Student academic and personal dataset (demographics, family support, habits, and grades).
-* Key Features:
-
-  * Behavioral: `studytime`, `absences`, `goout`, `freetime`, `famsup`, `schoolsup`
-  * Home-related: `famsize`, `Pstatus`, `Medu`, `Fedu`, `Mjob`, `Fjob`, `guardian`
-  * Academic: `G1`, `G2`, `G3`, `study_efficiency`, `is_struggling`
-  * Lifestyle: `Dalc`, `Walc`, `alcohol_ratio`, `goout_freetime`, `freetime`, `health`
-
----
+**Key Features include:**
+*   **Behavioral**: `studytime`, `absences`, `goout`, `freetime`, `famsup`, `schoolsup`
+*   **Home-related**: `famsize`, `Pstatus`, `Medu`, `Fedu`, `Mjob`, `Fjob`, `guardian`
+*   **Academic**: `G1`, `G2`, `G3`, `study_efficiency`, `is_struggling`
+*   **Lifestyle**: `Dalc`, `Walc`, `alcohol_ratio`, `goout_freetime`, `freetime`, `health`
 
 ## Methodology
+The project's methodology is structured around both unsupervised and supervised machine learning approaches:
 
 ### 1. Unsupervised Learning: K-Means
-
-* **Behavior Clustering**: Segment students based on study habits and social activities to see behavioral impact on grades.
-* **Home Clustering**: Segment students based on family and home environment to analyze influence on performance.
-* **Outcome**: Identified clusters with varying average grades (`G3`) and typical behavioral/home profiles.
+**K-Means clustering** is used for segmenting students into distinct groups.
+*   **Behavior Clustering**: Segments students based on their **study habits and social activities** to observe how these behaviors impact grades.
+*   **Home Clustering**: Segments students based on their **family and home environment** to analyze its influence on academic performance.
+*   **Outcome**: This step identified clusters characterized by varying **average grades (`G3`)** and typical behavioral/home profiles.
 
 ### 2. Supervised Learning: Classification
-
-* **Goal**: Predict if a student is struggling (`target`).
-* **Models Tested**: Decision Tree, Random Forest, CatBoost.
-* **Data Handling**: Removed `target`, `G3`, `G1G2_avg`, and cluster labels to avoid data leakage.
-* **Imbalanced Classes**: Applied class weights in CatBoost and Random Forest for better minority class performance.
-* **Selected Features**:
-
-selected\_features = \[
-"study\_efficiency", "is\_struggling", "goout\_freetime", "studytime\_failures",
-"famrel", "alcohol\_ratio", "parent\_edu", "higher", "freetime", "age",
-"Fedu", "health", "Walc","goout", 'Medu'
-]
-
-* **Best Model**: Random Forest
-* **Final Performance**:
-
-  * Accuracy: 0.90
-  * Minority class (`0`) F1-score: 0.43
-  * Majority class (`1`) F1-score: 0.95
+This phase aims to **predict if a student is struggling (`target`)**.
+*   **Models Tested**: **Decision Tree, Random Forest, and CatBoost** were evaluated.
+*   **Data Handling**: To prevent data leakage, `target`, `G3`, `G1G2_avg`, and cluster labels were removed. Class weights were applied in CatBoost and Random Forest to address imbalanced classes, improving minority class performance.
+*   **Best Model**: **Random Forest** was identified as the top-performing model.
+*   **Final Performance**:
+    *   **Accuracy: 0.90**
+    *   Minority class (`0`) F1-score: 0.43
+    *   Majority class (`1`) F1-score: 0.95
 
 ### 3. Supervised Learning: Regression
-
-* **Goal**: Predict exact final grades (`G3`) using `G1G2_avg`, `study_efficiency`, and `is_struggling`.
-* **Model**: Linear Regression
-* **Performance**:
-
-  * R²: 0.822
-  * RMSE: 1.736
-
----
+This phase is designed to **predict exact final grades (`G3`)**.
+*   **Model**: **Linear Regression** is used for this prediction task.
+*   **Features Used**: `G1G2_avg`, `study_efficiency`, and `is_struggling` are key features for prediction.
+*   **Performance**:
+    *   **R²: 0.822**
+    *   **RMSE: 1.736**
 
 ## Key Insights
-
-* Students with **strong family and school support** tend to achieve **higher grades**.
-* Behavioral patterns like consistent study time and moderate social activities correlate with better performance.
-* Home environment significantly affects outcomes: supportive parents and educated family members boost results.
-* Predictive models can identify struggling students early and estimate final grades with reasonable accuracy.
-
----
+The analysis yielded several important insights into student performance:
+*   Students receiving **strong family and school support** tend to achieve **higher grades**.
+*   **Behavioral patterns**, such as consistent study time and moderate social activities, show a correlation with better academic performance.
+*   The **home environment significantly affects outcomes**, with supportive parents and educated family members contributing to improved results.
+*   The developed **predictive models can identify struggling students early** and **estimate final grades with reasonable accuracy**.
 
 ## How to Use
-
-1. Clone the repository:
-
-   git clone \<repo\_url>
-
-2. Install dependencies:
-
-   pip install -r requirements.txt
-
-3. Run notebooks:
-
-   * `KMeans_Analysis.ipynb` → Behavioral & Home Clustering
-   * `Classification_Model.ipynb` → Predict struggling students
-   * `Regression_Model.ipynb` → Predict final grades
-
----
+To get started with the project:
+1.  **Clone the repository**: `git clone <repo_url>`
+2.  **Install dependencies**: `pip install -r requirements.txt`
+3.  **Run notebooks**:
+    *   `KMeans_Analysis.ipynb` → For Behavioral & Home Clustering
+    *   `Classification_Model.ipynb` → To predict struggling students
+    *   `Regression_Model.ipynb` → To predict final grades
 
 ## Conclusion
+By combining **behavioral, home, and academic features**, this project demonstrates the ability to **effectively segment students**, predict cases of academic struggle, and estimate final grades. This comprehensive approach can empower educators to **personalize interventions** and ultimately contribute to an improvement in overall student performance.
 
-Combining **behavioral, home, and academic features** allows us to **segment students effectively**, predict struggling cases, and estimate final grades. This approach can help educators **personalize interventions** and improve overall student performance.
+## License
+This project is released under the **GPL-3.0 license**.
 
-
+---
