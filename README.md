@@ -28,7 +28,7 @@ The project uses the **Student Performance Dataset** with two files:
 
 * Missing values handled; most features are imbalanced.
 * Outliers were retained as they reflect real-world conditions.
-![Outliers Visualization](images\Distribution_BoxPlot.png)
+![Outliers Visualization](images/Distribution_BoxPlot.png)
 * **Scaling:** Standardization was applied to numeric features since it is **less sensitive to outliers**.
 * **Engineered features**:
 
@@ -53,7 +53,7 @@ The project uses the **Student Performance Dataset** with two files:
   * Students were divided into **8 clusters** based on home influence.
   * Impact on final grades was weak, but strong on other features.
 
-* Visualization: ![Clusters_Visualization_PCA](images\Clusters_Visualization_PCA.png)
+* Visualization: ![Clusters_Visualization_PCA](images/Clusters_Visualization_PCA.png)
 
 ### 2️⃣ Supervised Learning: Classification
 
@@ -69,7 +69,7 @@ The project uses the **Student Performance Dataset** with two files:
 
   * **R² = 0.822**
   * **RMSE = 1.736**
-* Visualization: ![Linear_Regression](images\Linear_Regression.png)
+* Visualization: ![Linear_Regression](images/Linear_Regression.png)
 
 ---
 
