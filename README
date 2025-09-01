@@ -1,5 +1,4 @@
-
-# Student Performance Analysis
+# Student Performance Analysis & Prediction
 
 ## Project Overview
 This project analyzes student performance using **unsupervised and supervised machine learning** techniques. The goal is to understand behavioral and home factors affecting academic outcomes and to predict whether students are struggling and their final grades (`G3`).
